@@ -2,6 +2,8 @@ package org.homework_7;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -14,6 +16,11 @@ public class PlayerServiceJSON implements PlayerService {
 
     public PlayerServiceJSON() {
         mapper = new ObjectMapper();
+    }
+
+    public void saveToFile() throws IOException {
+        //mapper.writeValue(new File(FILE_NAME), players);
+        mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_NAME), players);
     }
 
     // получить игрока по id
@@ -68,7 +75,5 @@ public class PlayerServiceJSON implements PlayerService {
         return -1;
     }
 
-    //todo: дописать вывод в файл
-
-    //todo: дописать чтение из файла
+    //todo: дописать чтение из файла - возможно нам это не нужно
 }

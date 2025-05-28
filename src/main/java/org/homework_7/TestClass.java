@@ -1,10 +1,11 @@
 package org.homework_7;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestClass {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         PlayerServiceJSON service = new PlayerServiceJSON();
         System.out.println("Добавлен игрок. ID игрока: " + service.createPlayer("Kseniia"));
@@ -24,6 +25,7 @@ public class TestClass {
         System.out.println("Докидываем очков. Обновленный счет игрока: " + service.addPoints(10002, 444));
         System.out.println("Докидываем очков. Обновленный счет игрока: " + service.addPoints(10003, 555));
         System.out.println("Список всех игроков. " + service.getPlayers());
+        service.saveToFile();
 
 
 //        List<Player> playerList = new ArrayList<>();
