@@ -6,6 +6,7 @@ public class TestClassJSON {
     public static void main(String[] args) throws IOException {
 
         PlayerServiceJSON serviceJSON = new PlayerServiceJSON();
+
         System.out.println("Добавлен игрок \"Nick1\". ID игрока: " + serviceJSON.createPlayer("Nick1"));
         System.out.println("Добавлен игрок \"Nick2\". ID игрока: " + serviceJSON.createPlayer("Nick2"));
         System.out.println("Добавлен игрок \"Nick3\". ID игрока: " + serviceJSON.createPlayer("Nick3"));

@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><Players><ID>10001</ID></Players>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Players><Player><ID>10001</ID><Nickname>Nick1</Nickname><IsOnline>false</IsOnline><Points>666</Points></Player><Player><ID>10003</ID><Nickname>Nick3</Nickname><IsOnline>false</IsOnline><Points>999</Points></Player><Player><ID>10004</ID><Nickname>Nick4</Nickname><IsOnline>false</IsOnline><Points>444</Points></Player></Players>

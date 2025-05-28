@@ -1,21 +1,16 @@
 package org.homework_7;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import javax.print.Doc;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -35,14 +30,31 @@ public class PlayerServiceXML implements PlayerService {
         Document document = builder.newDocument();
 
         //Создаем корневой элемент
-        Element root = document.createElement("Players");
-        document.appendChild(root);
+        Element playersElement = document.createElement("Players");
+        document.appendChild(playersElement);
 
         //Создаем дочерние элементы
-        //todo: доделать по-человечески
-        Element childElement = document.createElement("ID");
-        childElement.appendChild(document.createTextNode("" + players.get(0).getId()));
-        root.appendChild(childElement);
+        for (Player player : players) {
+
+            Element playerElement = document.createElement("Player");
+            playersElement.appendChild(playerElement);
+
+            Element idElement = document.createElement("ID");
+            idElement.appendChild(document.createTextNode("" + player.getId()));
+            playerElement.appendChild(idElement);
+
+            Element NickElement = document.createElement("Nickname");
+            NickElement.appendChild(document.createTextNode(player.getNick()));
+            playerElement.appendChild(NickElement);
+
+            Element onlineElement = document.createElement("IsOnline");
+            onlineElement.appendChild(document.createTextNode("" + player.isOnline()));
+            playerElement.appendChild(onlineElement);
+
+            Element pointsElement = document.createElement("Points");
+            pointsElement.appendChild(document.createTextNode("" + player.getPoints()));
+            playerElement.appendChild(pointsElement);
+        }
 
         //Записываем в XML файл
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -70,19 +82,19 @@ public class PlayerServiceXML implements PlayerService {
 
     // создать игрока (возвращает id нового игрока)
     @Override
-    public int createPlayer(String nickname) throws IOException {
+    public int createPlayer(String nickname) throws ParserConfigurationException, TransformerException {
         //проверяем лежит ли что-то в списке или нам надо его проинициализировать
         if (players == null) players = new ArrayList<>();
 
         Player newPlayer = new Player(10000 + players.size() + 1, nickname, 0, false);
         players.add(newPlayer);
-        //saveToFile();
+        saveToFile();
         return newPlayer.getId();
     }
 
     // удалить игрока по id'шнику, вернет удаленного игрока
     @Override
-    public Player deletePlayer(int id) throws IOException {
+    public Player deletePlayer(int id) throws ParserConfigurationException, TransformerException {
         Player removedPlayer = null;
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).getId() == id) {
@@ -91,17 +103,17 @@ public class PlayerServiceXML implements PlayerService {
                 break;
             }
         }
-        //saveToFile();
+        saveToFile();
         return removedPlayer;
     }
 
     // добавить очков игроку. Возвращает обновленный счет
     @Override
-    public int addPoints(int playerId, int points) throws IOException {
+    public int addPoints(int playerId, int points) throws ParserConfigurationException, TransformerException {
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).getId() == playerId) {
                 players.set(i, players.get(i)).setPoints(points + players.get(i).getPoints());
-                //saveToFile();
+                saveToFile();
                 return players.get(i).getPoints();
             }
         }
