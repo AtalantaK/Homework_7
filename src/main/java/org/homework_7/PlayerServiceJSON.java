@@ -36,6 +36,7 @@ public class PlayerServiceJSON implements PlayerService {
     public int createPlayer(String nickname) {
         //проверяем лежит ли что-то в списке или нам надо его проинициализировать
         if (players == null) players = new ArrayList<>();
+
         Player newPlayer = new Player(10000 + players.size() + 1, nickname, 0, false);
         players.add(newPlayer);
         return newPlayer.getId();
@@ -55,11 +56,16 @@ public class PlayerServiceJSON implements PlayerService {
         return removedPlayer;
     }
 
-    //todo: дописать
     // добавить очков игроку. Возвращает обновленный счет
     @Override
     public int addPoints(int playerId, int points) {
-        return 0;
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getId() == playerId) {
+                players.set(i, players.get(i)).setPoints(points + players.get(i).getPoints());
+                return players.get(i).getPoints();
+            }
+        }
+        return -1;
     }
 
     //todo: дописать вывод в файл

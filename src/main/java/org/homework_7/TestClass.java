@@ -10,12 +10,21 @@ public class TestClass {
         System.out.println("Добавлен игрок. ID игрока: " + service.createPlayer("Kseniia"));
         System.out.println("Добавлен игрок. ID игрока: " + service.createPlayer("Andrii"));
         System.out.println("Добавлен игрок. ID игрока: " + service.createPlayer("Oleg"));
-        System.out.println("Найден игрок по ID. " + service.getPlayerById(10001));
-        System.out.println("Найден игрок по ID. " + service.getPlayerById(10002));
-        System.out.println("Найден игрок по ID. " + service.getPlayerById(10003));
+//        System.out.println("Найден игрок по ID. " + service.getPlayerById(10001));
+//        System.out.println("Найден игрок по ID. " + service.getPlayerById(10002));
+//        System.out.println("Найден игрок по ID. " + service.getPlayerById(10003));
+//        System.out.println("Список всех игроков. " + service.getPlayers());
+//        System.out.println("Удален игрок по ID. " + service.deletePlayer(10003));
         System.out.println("Список всех игроков. " + service.getPlayers());
-        System.out.println("Удален игрок по ID. " + service.deletePlayer(10003));
+        System.out.println("Докидываем очков. Обновленный счет игрока: " + service.addPoints(10001, 100));
+        System.out.println("Докидываем очков. Обновленный счет игрока: " + service.addPoints(10002, 111));
+        System.out.println("Докидываем очков. Обновленный счет игрока: " + service.addPoints(10003, 222));
         System.out.println("Список всех игроков. " + service.getPlayers());
+        System.out.println("Докидываем очков. Обновленный счет игрока: " + service.addPoints(10001, 333));
+        System.out.println("Докидываем очков. Обновленный счет игрока: " + service.addPoints(10002, 444));
+        System.out.println("Докидываем очков. Обновленный счет игрока: " + service.addPoints(10003, 555));
+        System.out.println("Список всех игроков. " + service.getPlayers());
+
 
 //        List<Player> playerList = new ArrayList<>();
 //        Player player1 = new Player(11, "Nick1", 11, false);
