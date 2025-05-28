@@ -44,12 +44,25 @@ public class PlayerServiceJSON implements PlayerService {
     // удалить игрока по id'шнику, вернет удаленного игрока
     @Override
     public Player deletePlayer(int id) {
-        return null;
+        Player removedPlayer = null;
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getId() == id) {
+                removedPlayer = players.get(i);
+                players.remove(i);
+                break;
+            }
+        }
+        return removedPlayer;
     }
 
+    //todo: дописать
     // добавить очков игроку. Возвращает обновленный счет
     @Override
     public int addPoints(int playerId, int points) {
         return 0;
     }
+
+    //todo: дописать вывод в файл
+
+    //todo: дописать чтение из файла
 }
