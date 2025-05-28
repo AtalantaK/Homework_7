@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PlayerServiceJSON implements PlayerService {
 
-    private static final String FILE_NAME = "players.json";
+    private static final String FILE_NAME = "playersJSON.json";
     private List<Player> players;
     private final ObjectMapper mapper;
 
@@ -19,7 +19,6 @@ public class PlayerServiceJSON implements PlayerService {
     }
 
     public void saveToFile() throws IOException {
-        //mapper.writeValue(new File(FILE_NAME), players);
         mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_NAME), players);
     }
 
@@ -40,18 +39,19 @@ public class PlayerServiceJSON implements PlayerService {
 
     // создать игрока (возвращает id нового игрока)
     @Override
-    public int createPlayer(String nickname) {
+    public int createPlayer(String nickname) throws IOException {
         //проверяем лежит ли что-то в списке или нам надо его проинициализировать
         if (players == null) players = new ArrayList<>();
 
         Player newPlayer = new Player(10000 + players.size() + 1, nickname, 0, false);
         players.add(newPlayer);
+        saveToFile();
         return newPlayer.getId();
     }
 
     // удалить игрока по id'шнику, вернет удаленного игрока
     @Override
-    public Player deletePlayer(int id) {
+    public Player deletePlayer(int id) throws IOException {
         Player removedPlayer = null;
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).getId() == id) {
@@ -60,20 +60,20 @@ public class PlayerServiceJSON implements PlayerService {
                 break;
             }
         }
+        saveToFile();
         return removedPlayer;
     }
 
     // добавить очков игроку. Возвращает обновленный счет
     @Override
-    public int addPoints(int playerId, int points) {
+    public int addPoints(int playerId, int points) throws IOException {
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).getId() == playerId) {
                 players.set(i, players.get(i)).setPoints(points + players.get(i).getPoints());
+                saveToFile();
                 return players.get(i).getPoints();
             }
         }
-        return -1;
+        throw new RuntimeException("Объект не найден!");
     }
-
-    //todo: дописать чтение из файла - возможно нам это не нужно
 }
