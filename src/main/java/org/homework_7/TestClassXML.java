@@ -7,7 +7,7 @@ import java.io.IOException;
 public class TestClassXML {
     public static void main(String[] args) throws ParserConfigurationException, TransformerException, IOException {
 
-        PlayerService serviceXML = new PlayerServiceXML("XML");
+        PlayerService serviceXML = new PlayerServiceClass("XML");
 
         System.out.println("Добавлен игрок \"Nick1\". ID игрока: " + serviceXML.createPlayer("Nick1"));
         System.out.println("Добавлен игрок \"Nick2\". ID игрока: " + serviceXML.createPlayer("Nick2"));
