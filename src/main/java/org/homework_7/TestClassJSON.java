@@ -7,7 +7,7 @@ import java.io.IOException;
 public class TestClassJSON {
     public static void main(String[] args) throws IOException, ParserConfigurationException, TransformerException {
 
-        PlayerServiceJSON serviceJSON = new PlayerServiceJSON("JSON");
+        PlayerService serviceJSON = new PlayerServiceJSON("JSON");
 
         System.out.println("Добавлен игрок \"Nick1\". ID игрока: " + serviceJSON.createPlayer("Nick1"));
         System.out.println("Добавлен игрок \"Nick2\". ID игрока: " + serviceJSON.createPlayer("Nick2"));
