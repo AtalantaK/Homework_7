@@ -1,12 +1,12 @@
 # Homework_7
 ### Задания
 #### 1. Сервис игроков (JSON)
-* Создайте класс Player. Скопируйте ссылка
+* Создайте класс Player. Скопируйте [ссылка](https://github.com/EreminD/course-27.12/blob/main/src/main/java/ru/inno/course/basics/fs/hw/Player.java)
 * Создайте класс PlayerServiceJSON. Класс должен имплементировать
-методы интерфейса PlayerService ссылка
+методы интерфейса PlayerService [ссылка](https://github.com/EreminD/course-27.12/blob/main/src/main/java/ru/inno/course/basics/fs/hw/PlayerService.java)
 * Программа должна сохранять свое состояние в файл формата JSON
 * Все изменения коллекции сохраняются в файл (файл перезаписывается)
-* Создайте класс TestClass. В нем метод psvm пример
+* Создайте класс TestClass. В нем метод psvm [пример](https://github.com/EreminD/course-27.12/blob/main/src/main/java/ru/inno/course/basics/fs/hw/TestClass.java)
 * В методе создайте экземпляр класс
 ````java
  PlayerService service = new PlayerServiceJSON();
