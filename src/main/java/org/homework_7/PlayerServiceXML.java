@@ -12,7 +12,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-public class PlayerServiceXML extends PlayerServiceClass implements PlayerService {
+public class PlayerServiceXML extends PlayerServiceClass {
 
     private static final String FILE_NAME = "playersXML.xml";
 
