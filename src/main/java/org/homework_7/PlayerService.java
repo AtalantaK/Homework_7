@@ -18,7 +18,7 @@ public interface PlayerService {
     // удалить игрока по id'шнику, вернет удаленного игрока
     Player deletePlayer(int id) throws IOException, ParserConfigurationException, TransformerException;
 
-    // добавить очков игроку. Возвращает обновленный счет
+    // Добавить очков игроку. Возвращает обновленный счет
     int addPoints(int playerId, int points) throws IOException, ParserConfigurationException, TransformerException;
 
 }
