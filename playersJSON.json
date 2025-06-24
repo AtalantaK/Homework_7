@@ -3,4 +3,9 @@
   "nick" : "Nick1",
   "points" : 0,
   "online" : false
+}, {
+  "id" : 10002,
+  "nick" : "Nick1",
+  "points" : 0,
+  "online" : false
 } ]
