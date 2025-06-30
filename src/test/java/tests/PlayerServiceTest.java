@@ -39,7 +39,9 @@ public class PlayerServiceTest {
         assertEquals(playerName, player.getNick());
     }
 
+
     @Test
+    // Получить игрока
     public void getPlayerTest() throws IOException, ParserConfigurationException, TransformerException {
         PlayerService serviceJSON = new PlayerServiceClass("JSON");
         String playerName = "Nick1";
@@ -50,7 +52,25 @@ public class PlayerServiceTest {
 //        playerId = 100;
 //        playerName = "Nick2";
 
-        assertEquals("Player{id="+playerId+", nick='" + playerName + "', points=0, isOnline=false}", player.toString());
+        assertEquals("Player{id=" + playerId + ", nick='" + playerName + "', points=0, isOnline=false}", player.toString());
+    }
+
+    @Test
+    //Получить список игроков
+    public void getPlayersTest(){
+        //todo
+    }
+
+    @Test
+    //Удалить игрока
+    public void deletePlayerTest(){
+        //todo
+    }
+
+    @Test
+    //Удалить всех игроков
+    public void deleteAllPlayersTest(){
+        //todo
     }
 
 }
