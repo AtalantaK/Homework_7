@@ -1,11 +1,26 @@
 [ {
   "id" : 10001,
-  "nick" : "Nick1",
+  "nick" : "Nick",
   "points" : 0,
   "online" : false
 }, {
   "id" : 10002,
   "nick" : "Nick1",
+  "points" : 0,
+  "online" : false
+}, {
+  "id" : 10003,
+  "nick" : "Nick2",
+  "points" : 0,
+  "online" : false
+}, {
+  "id" : 10004,
+  "nick" : "Nick3",
+  "points" : 0,
+  "online" : false
+}, {
+  "id" : 10005,
+  "nick" : "Nick",
   "points" : 0,
   "online" : false
 } ]

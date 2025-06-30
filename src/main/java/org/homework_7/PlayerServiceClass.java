@@ -12,6 +12,8 @@ public class PlayerServiceClass implements PlayerService {
     protected static List<Player> players;
     private final String method;
 
+
+
     public PlayerServiceClass(String method) {
         this.method = method;
     }
